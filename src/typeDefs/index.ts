@@ -43,8 +43,8 @@ const typeDefs = `
     
   type Query {
     users: [User!]!
-    restaurants: [Restaurant!]!
-    searchRestaurants(searchTerm: String): [Restaurant]
+    restaurants(page: Int, pageSize: Int): [Restaurant!]!
+    searchRestaurants(searchTerm: String, page: Int, pageSize: Int): [Restaurant]
   }
   
   type Mutation {

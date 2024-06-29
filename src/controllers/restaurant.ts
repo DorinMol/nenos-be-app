@@ -1,5 +1,6 @@
 import {
   CreateRestaurantInput,
+  RestaurantInput,
   SearchRestaurantInput,
   UpdateRestaurantInput,
 } from '../models/restaurant'
@@ -12,14 +13,14 @@ export default class RestaurantController {
   ) {
     return RestaurantService.createRestaurant(restaurant)
   }
-  static async restaurants() {
-    return RestaurantService.getRestaurants()
+  static async restaurants(_: unknown, restaurantInput: RestaurantInput) {
+    return RestaurantService.getRestaurants(restaurantInput)
   }
   static async searchRestaurants(
     _: unknown,
-    { searchTerm }: SearchRestaurantInput,
+    searchRestaurantInput: SearchRestaurantInput,
   ) {
-    return RestaurantService.searchRestaurants(searchTerm)
+    return RestaurantService.searchRestaurants(searchRestaurantInput)
   }
   static async updateRestaurant(
     _: unknown,

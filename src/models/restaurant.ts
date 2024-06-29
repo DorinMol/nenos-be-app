@@ -5,6 +5,12 @@ export type CreateRestaurantInput = Omit<
   Restaurant,
   'id' | 'createdAt' | 'updatedAt'
 >
-export type SearchRestaurantInput = {
+
+export type RestaurantInput = {
+  page: number
+  pageSize: number
+}
+
+export type SearchRestaurantInput = RestaurantInput & {
   searchTerm: string
 }
