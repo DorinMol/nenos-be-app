@@ -28,7 +28,7 @@ export default class RestaurantController {
   ) {
     return RestaurantService.updateRestaurant(restaurant)
   }
-  static async deleteRestaurant(_: unknown, { id }: { id: number }) {
+  static async deleteRestaurant(_: unknown, { id }: { id: string | number }) {
     return RestaurantService.deleteRestaurant(id)
   }
 }

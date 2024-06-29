@@ -21,9 +21,15 @@ export default class RestaurantService {
   ): Promise<Restaurant> {
     return prisma.restaurant.update({
       where: {
-        id: restaurant.id,
+        id: Number(restaurant.id),
       },
-      data: restaurant,
+      data: {
+        // receiving the id as string...
+        email: restaurant.email,
+        name: restaurant.name,
+        address: restaurant.address,
+        phone: restaurant.phone,
+      },
     })
   }
 
@@ -40,8 +46,11 @@ export default class RestaurantService {
     pageSize,
   }: RestaurantInput): Promise<Restaurant[]> {
     return prisma.restaurant.findMany({
-      skip: page * pageSize,
+      skip: (page - 1) * pageSize,
       take: pageSize,
+      orderBy: {
+        createdAt: 'desc',
+      },
     })
   }
 
