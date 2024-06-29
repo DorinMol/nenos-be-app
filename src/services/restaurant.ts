@@ -27,10 +27,10 @@ export default class RestaurantService {
     })
   }
 
-  static async deleteRestaurant(id: number): Promise<Restaurant> {
+  static async deleteRestaurant(id: number | string): Promise<Restaurant> {
     return prisma.restaurant.delete({
       where: {
-        id,
+        id: Number(id),
       },
     })
   }
