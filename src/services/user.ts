@@ -13,4 +13,8 @@ export default class UserService {
       },
     })
   }
+
+  static async getUsers(): Promise<User[]> {
+    return prisma.user.findMany()
+  }
 }

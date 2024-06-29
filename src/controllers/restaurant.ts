@@ -6,7 +6,10 @@ import {
 import RestaurantService from '../services/restaurant'
 
 export default class RestaurantController {
-  static async createRestaurant(_: unknown, restaurant: CreateRestaurantInput) {
+  static async createRestaurant(
+    _: unknown,
+    { restaurant }: { restaurant: CreateRestaurantInput },
+  ) {
     return RestaurantService.createRestaurant(restaurant)
   }
   static async restaurants() {
@@ -20,9 +23,9 @@ export default class RestaurantController {
   }
   static async updateRestaurant(
     _: unknown,
-    updateRestaurant: UpdateRestaurantInput,
+    { restaurant }: { restaurant: UpdateRestaurantInput },
   ) {
-    return RestaurantService.updateRestaurant(updateRestaurant)
+    return RestaurantService.updateRestaurant(restaurant)
   }
   static async deleteRestaurant(_: unknown, { id }: { id: number }) {
     return RestaurantService.deleteRestaurant(id)

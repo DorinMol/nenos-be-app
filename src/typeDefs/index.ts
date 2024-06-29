@@ -10,11 +10,15 @@ const typeDefs = `
     address: String!
     email: String!
     phone: String!
+    createdAt: String!
+    updatedAt: String!
   }
 
   type User {
     id: ID!
     email: String!
+    createdAt: String!
+    updatedAt: String!
   }
   
   input CreateUserInput {
@@ -38,6 +42,7 @@ const typeDefs = `
   }
     
   type Query {
+    users: [User!]!
     restaurants: [Restaurant!]!
     searchRestaurants(searchTerm: String): [Restaurant]
   }
