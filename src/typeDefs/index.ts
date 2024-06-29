@@ -20,8 +20,17 @@ const typeDefs = `
     createdAt: String!
     updatedAt: String!
   }
+
+  type AuthPayload {
+    token: String!
+  }
   
   input CreateUserInput {
+    email: String!
+    password: String!
+  }
+
+  input LoginUserInput {
     email: String!
     password: String!
   }
@@ -51,7 +60,8 @@ const typeDefs = `
     createRestaurant(restaurant: CreateRestaurantInput!): Restaurant!
     updateRestaurant(restaurant: UpdateRestaurantInput!): Restaurant!
     deleteRestaurant(id: ID!): Restaurant!
-    createUser(user: CreateUserInput!): User!
+    createUser(user: CreateUserInput!): AuthPayload!
+    loginUser(user: LoginUserInput!): AuthPayload!
   }
 `
 

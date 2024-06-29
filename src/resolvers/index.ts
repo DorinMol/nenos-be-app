@@ -12,6 +12,7 @@ const resolvers = {
     updateRestaurant: RestaurantController.updateRestaurant,
     deleteRestaurant: RestaurantController.deleteRestaurant,
     createUser: UserController.createUser,
+    loginUser: UserController.loginUser,
   },
 }
 
